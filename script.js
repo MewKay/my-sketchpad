@@ -1,3 +1,7 @@
+const GRID_ROW_SIZE = 16;
+const GRID_COLUMN_SIZE = 16;
+
+document.body.appendChild(createDivGrid(GRID_ROW_SIZE,GRID_COLUMN_SIZE));
 
 function createDivGrid (rows,columns) {
   let gridContainer = document.createElement("div");
