@@ -7,6 +7,7 @@
   flex-direction: column;
   width: 600px;
   height: 600px;
+  border: 2px solid grey;
 }
 
 .grid-row {
@@ -15,6 +16,6 @@
 }
 
 .elements {
-  border: 1px solid black;
+  border: 1px solid rgb(150,150,150);
   flex: 1;
 }

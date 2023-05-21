@@ -1,5 +1,5 @@
-const GRID_ROW_SIZE = 16;
-const GRID_COLUMN_SIZE = 16;
+const GRID_ROW_SIZE = 60;
+const GRID_COLUMN_SIZE = 60;
 
 document.body.appendChild(createDivGrid(GRID_ROW_SIZE,GRID_COLUMN_SIZE));
 
@@ -15,6 +15,11 @@ function createDivGrid (rows,columns) {
       
       let divElement = document.createElement("div");
       divElement.classList.toggle("elements");
+
+      divElement.addEventListener("mouseover", function (e) {
+        drawDiv(divElement,"black");
+      });
+
       divRow.appendChild(divElement);
 
     }
@@ -24,4 +29,8 @@ function createDivGrid (rows,columns) {
   }
 
   return gridContainer;
+}
+
+function drawDiv (divElement, color) {
+  divElement.style.backgroundColor = color;
 }
