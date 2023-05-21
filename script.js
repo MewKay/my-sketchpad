@@ -1,21 +1,20 @@
 const DEFAULT_GRID_SIZE = 50;
+const gridContainer = document.querySelector("#grid-container");
 const resizeButton = document.querySelector("#resize-grid");
 
-document.body.appendChild(createDivGrid(DEFAULT_GRID_SIZE,DEFAULT_GRID_SIZE));
+document.body.appendChild(createDivGrid(DEFAULT_GRID_SIZE));
 resizeButton.addEventListener("click", resizeGrid);
 
-function createDivGrid (rows,columns) {
-  let gridContainer = document.createElement("div");
-  gridContainer.classList.toggle("grid");
+function createDivGrid (size) {
 
-  for(let i=0; i<rows; i++) {
+  for(let i=0; i<size; i++) {
     let divRow = document.createElement("div");
-    divRow.classList.toggle("grid-row");
+    divRow.classList.add("grid-row");
     
-    for(let i=0; i<columns; i++) {   
+    for(let j=0; j<size; j++) {   
       
       let divElement = document.createElement("div");
-      divElement.classList.toggle("elements");
+      divElement.classList.add("elements");
 
       divElement.addEventListener("mouseover", function (e) {
         drawDiv(divElement,"black");
@@ -50,7 +49,6 @@ function resizeGrid() {
     return;
   }
 
-  document.body.innerHTML = "";
-  document.body.appendChild(createDivGrid(sizeTyped,sizeTyped));
-
+  gridContainer.innerHTML = "";
+  createDivGrid(sizeTyped);
 }
