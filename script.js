@@ -1,7 +1,7 @@
-const GRID_ROW_SIZE = 60;
-const GRID_COLUMN_SIZE = 60;
+const DEFAULT_GRID_SIZE = 50;
+const resizeButton = document.querySelector("#resize-grid");
 
-document.body.appendChild(createDivGrid(GRID_ROW_SIZE,GRID_COLUMN_SIZE));
+document.body.appendChild(createDivGrid(DEFAULT_GRID_SIZE,DEFAULT_GRID_SIZE));
 
 function createDivGrid (rows,columns) {
   let gridContainer = document.createElement("div");
