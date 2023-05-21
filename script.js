@@ -1,9 +1,14 @@
 const DEFAULT_GRID_SIZE = 50;
+let pencilMode = "color";
 const gridContainer = document.querySelector("#grid-container");
 const resizeButton = document.querySelector("#resize-grid");
+const rainbowButton = document.querySelector("#rainbow-mode");
 
 document.body.appendChild(createDivGrid(DEFAULT_GRID_SIZE));
 resizeButton.addEventListener("click", resizeGrid);
+rainbowButton.addEventListener("click", function (e) {
+  pencilMode = "rainbow";
+})
 
 function createDivGrid (size) {
 
@@ -32,7 +37,13 @@ function createDivGrid (size) {
 }
 
 function drawDiv (divElement, color) {
-  divElement.style.backgroundColor = color;
+  if(pencilMode === "color")
+    divElement.style.backgroundColor = color;
+  if(pencilMode === "rainbow")
+    divElement.style.backgroundColor = `rgb(
+      ${getRandomBetween(0,255)},
+      ${getRandomBetween(0,255)},
+      ${getRandomBetween(0,255)})`;
 }
 
 function resizeGrid() {
@@ -51,4 +62,8 @@ function resizeGrid() {
 
   gridContainer.innerHTML = "";
   createDivGrid(sizeTyped);
+}
+
+function getRandomBetween(min,max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
